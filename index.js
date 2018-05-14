@@ -24,9 +24,7 @@ function checkCollision(rock) {
     const rockLeftEdge = positionToInteger(rock.style.left)
     const rockRightEdge = rockLeftEdge + 20;
 
-    if (rockLeftEdge < dodgerLeftEdge && rockRightEdge > dodgerLeftEdge ||
-        rockLeftEdge >= dodgerLeftEdge && rockRightEdge <= dodgerRightEdge ||
-        rockLeftEdge < dodgerRightEdge && rockRightEdge > dodgerRightEdge) {
+    if (rockLeftEdge < dodgerLeftEdge && rockRightEdge > ) {
       return true
     }
   }
@@ -98,11 +96,17 @@ function createRock(x) {
 function endGame() {
   clearInterval(gameInterval);
   
+<<<<<<< HEAD
   const numberOfRocks = ROCKS.length;
   for (let i = 0; i < numberOfRocks; i++) {
     ROCKS[i].remove();
   }
   window.removeEventListener('keydown', moveDodger);
+=======
+
+  
+  window.removeEventListener('keydown', 'moveDodger');
+>>>>>>> 00b0f7e0dbbf27c5469ac4be32357394f19a0bda
   alert("YOU LOSE!");
 }
 
@@ -115,6 +119,7 @@ function moveDodger(e) {
    * we've declared for you above.)
    * And be sure to use the functions declared below!
    */
+<<<<<<< HEAD
    if (e.which === LEFT_ARROW) {
      moveDodgerLeft();
      e.preventDefault();
@@ -124,6 +129,13 @@ function moveDodger(e) {
      moveDodgerRight();
      e.preventDefault();
      e.stopPropagation();
+=======
+   if (e.which == LEFT_ARROW) {
+     moveDodgerLeft();
+   }
+   else if (e.which == RIGHT_ARROW) {
+     moveDodgerRight();
+>>>>>>> 00b0f7e0dbbf27c5469ac4be32357394f19a0bda
    }
 }
 
@@ -138,7 +150,11 @@ function moveDodgerLeft() {
   if (dLeftEdge > 0) {
     DODGER.style.left = `${dLeftEdge - 4}px`;
     window.requestAnimationFrame(moveDodgerLeft);
+<<<<<<< HEAD
   }
+=======
+   }
+>>>>>>> 00b0f7e0dbbf27c5469ac4be32357394f19a0bda
 }
 
 function moveDodgerRight() {
@@ -147,10 +163,17 @@ function moveDodgerRight() {
    * This function should move DODGER to the right
    * (mabye 4 pixels?). Use window.requestAnimationFrame()!
    */
+<<<<<<< HEAD
   const dLeftEdge = positionToInteger(DODGER.style.left);
   
   if (dLeftEdge < 360) {
     DODGER.style.left = `${dLeftEdge + 4}px`;
+=======
+  const dRightEdge = positionToInteger(DODGER.style.right);
+   
+  if (dRightEdge < 400) {
+    DODGER.style.right = `${dRightEdge + 4}px`;
+>>>>>>> 00b0f7e0dbbf27c5469ac4be32357394f19a0bda
     window.requestAnimationFrame(moveDodgerRight);
   }
 }
